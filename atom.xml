@@ -27,6 +27,42 @@
         <updated>2023-03-29T15:02:18.443Z</updated>
     </entry>
     <entry>
+        <id>http://example.com/2023/01/04/%E8%BE%93%E5%85%A5url%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E5%85%A8%E8%BF%87%E7%A8%8B/</id>
+        <title>输入url到显示页面全过程</title>
+        <link rel="alternate" href="http://example.com/2023/01/04/%E8%BE%93%E5%85%A5url%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E5%85%A8%E8%BF%87%E7%A8%8B/"/>
+        <content type="html">&lt;h1 id=&#34;一&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一&#34;&gt;#&lt;/a&gt; 一&lt;/h1&gt;
+&lt;p&gt;1.url 解析：判断输入的内容是关键字还是 url 地址，如果是 url 地址的话会进行 dns 解析，查找该 url 的 ip 地址、dns 查找过程：&lt;br /&gt;
+①去浏览器缓存中查找，浏览器会缓存 dns 记录一段时间，但是系统并没有告诉浏览器要缓存多长时间，不同的浏览器缓存时间不同，一般为 2-30 分钟&lt;br /&gt;
+② 如果浏览器缓存中查不到的话浏览器会进行一个系统调用去系统缓存中查找，之后可能要查找路由器缓存和网络服务提供商 isp 缓存 dns 的服务器，在这一般都可以找到缓存记录，还有一个就是递归搜索：你的网络服务提供商会从根域名服务器开始进行递归搜索，从顶级域名服务器到 url 的域名服务器&lt;/p&gt;
+&lt;h1 id=&#34;二&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二&#34;&gt;#&lt;/a&gt; 二&lt;/h1&gt;
+&lt;p&gt;2. 找到 ip 地址之后浏览器会建立 tcp 链接，进行 tcp 三次握手：&lt;br /&gt;
+第一次客户端向服务端发送 syn 包（同步序列编号）客户端进入 syn_sent 状态，&lt;br /&gt;
+第二次服务端收到并确认客户端发送的 syn，同时服务端向客户端发送 syn+ack，服务端进入 syn——recover 状态，&lt;br /&gt;
+第三次客户端收到服务端发送的 syn+ack，同时向服务端发送 ack 确认字段，服务端和客户端进入 established 状态，tcp 连接成功。&lt;br /&gt;
+客户端给服务器发送一个 http 请求，请求头包括请求方法，http 协议版本 url 地址，请求行有 accept 接受什么类型的相应，connection（keep-alive 保持 tcp 链接）之类的，请求空行，请求体，期间可能会有重定向，&lt;/p&gt;
+&lt;h1 id=&#34;三&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#三&#34;&gt;#&lt;/a&gt; 三&lt;/h1&gt;
+&lt;p&gt;3. 服务端处理请求，响应头包括 http 协议版本，响应状态码，相应行 Pragma，cache-control（缓存）相应空行 响应体&lt;/p&gt;
+&lt;h1 id=&#34;四&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#四&#34;&gt;#&lt;/a&gt; 四&lt;/h1&gt;
+&lt;p&gt;4.tcp 四次挥手：&lt;br /&gt;
+第一次 客户端发送连接释放报文段，停止发送数据，主动关闭 tcp 链接，进入 fin wait 1 状态 等待服务端的响应&lt;br /&gt;
+第二次 服务端收到连接释放报文段后发出确认报文段，服务端进入 close wait 状态，此时 tcp 处于半关闭状态，客户端收到服务端的确认后进入 fin wait 2 状态，等待服务端发出的连接释放报文段&lt;br /&gt;
+第三次 服务端数据发送完毕后发出连接释放报文段，服务端进入 last -ack 状态，等待客户端的确认&lt;br /&gt;
+第四次 客户端收到服务端的连接释放报文段后发出确认报文段，客户端进入 time wait 状态，此时 tcp 链接未释放掉，需要等待最大报文生存时间结束后客户端进入 close 状态&lt;/p&gt;
+&lt;h1 id=&#34;五&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#五&#34;&gt;#&lt;/a&gt; 五&lt;/h1&gt;
+&lt;p&gt;5. 浏览器渲染页面，浏览器渲染的顺序：&lt;br /&gt;
+  1. 构建 dom 树&lt;br /&gt;
+  2. 构建 css 树&lt;br /&gt;
+  3. 构建渲染树&lt;br /&gt;
+  4. 节点布局&lt;br /&gt;
+  5. 页面渲染&lt;/p&gt;
+</content>
+        <category term="八股文" scheme="http://example.com/categories/%E5%85%AB%E8%82%A1%E6%96%87/" />
+        <category term="计算机网络" scheme="http://example.com/categories/%E5%85%AB%E8%82%A1%E6%96%87/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" />
+        <category term="tcp" scheme="http://example.com/tags/tcp/" />
+        <category term="浏览器" scheme="http://example.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" />
+        <updated>2023-01-04T14:30:35.000Z</updated>
+    </entry>
+    <entry>
         <id>http://example.com/2020/08/13/computer-science/note/theme-shoka-doc/special/</id>
         <title>Step.4 主题特殊功能</title>
         <link rel="alternate" href="http://example.com/2020/08/13/computer-science/note/theme-shoka-doc/special/"/>
@@ -1875,13 +1911,5 @@ http.createServer((req, res) &amp;#x3D;&amp;gt; {
 &lt;p&gt;&lt;em&gt;From &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5yaWNoeWxpLmNvbS90b29sL2xvcmVtaXBzdW0v&#34;&gt;亂數假文產生器 - Chinese Lorem Ipsum&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;
 </content>
         <updated>2013-12-24T15:31:30.000Z</updated>
-    </entry>
-    <entry>
-        <id>http://example.com/2013/12/24/long-title/</id>
-        <title>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo turpis, tincidunt ac convallis id.</title>
-        <link rel="alternate" href="http://example.com/2013/12/24/long-title/"/>
-        <content type="html">&lt;p&gt;This post has a long title. Make sure the title displayed right.&lt;/p&gt;
-</content>
-        <updated>2013-12-24T15:31:06.000Z</updated>
     </entry>
 </feed>
